@@ -1,13 +1,13 @@
-name: CI
+name: CICD2
 
 on:
   pull_request:
-    branches: [ master, main ]
+    branches: [ master ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
