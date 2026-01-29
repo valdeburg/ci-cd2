@@ -1,5 +1,5 @@
 def test_bad():
-    x = 5
-    y = x * 2
+    x=5
+    y = x* 2
     print(y)
-    assert 1 == 1
+    assert 1==1
