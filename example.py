@@ -1,4 +1,7 @@
+import os
+
 def test_bad():
     x=5
     y = x* 2
-    assert 1==1
+
+    assert 1==1 
