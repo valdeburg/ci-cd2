@@ -1,33 +1,31 @@
-name: CI
+name: CI/CD Pipeline
 
 on:
   pull_request:
-    branches: [ master, main ]
+    branches: [ master ]
 
 jobs:
-  test:
+  test-and-lint:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.10'
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          # Установка pytest и ruff
+          pip install --upgrade pip
           pip install pytest ruff
 
-      - name: Run unit tests
+      - name: Run Unit Tests
         run: |
-          python -m pytest -v
+          python -m pytest tests/ -v
 
-      - name: Run Ruff linting
+      - name: Run Ruff Linting
         run: |
           ruff check --output-format=github .

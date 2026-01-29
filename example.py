@@ -1,3 +1,5 @@
-x = 0
-y=1
-print(x+y)
+def test_bad():
+    x=  5
+    y = x * 2
+    print(y)
+    assert 1 == 1
